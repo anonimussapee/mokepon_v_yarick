@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOKEPON!</title>
+    <script src="./js/mokepon.js "></script>
+</head>
+<body>
+    <h1>MOKEPON! fuego 🔥 agua💧 tierra🌱 </h1>
+    <section id="seleccion-mascota">
+        <h2>Elige tu mascota:</h2>
+        <label for="hipodoge"> hipodoge </label>
+         <input type="radio" name="mascota" id="hipodoge"/>
+         <br>
+        <label for="capipepo"> capipepo </label>
+        <input type="radio" name="mascota" id="capipepo" />
+         <br>  
+        <label for="ratigueya"> ratigueya </label>
+        <input type="radio" name="mascota" id="ratigueya"  />
+
+        <button id="boton-mascota"> seleccionar</button>
+    </section>
+
+    <section id="seleccion-ataque"> 
+        <h2>Elige tu ataque</h2>
+        <p>tu mascota <span id="mascota-jugador"></span>tiene <span>3</span> vidas</p>
+        <p>la mascota <span id="mascota-enemigo"></span>del enemigo tiene <span>3</span> vidas</p>
+        <p>
+        <button id="boton-fuego">fuego🔥</button>
+        <button id="boton-agua">agua💧</button>
+        <button id="boton-tierra">tierra🌱</button>
+         </p>
+    </section>
+    <section id="mensajes">
+        <p>tu mascota ataco con FUEGO, la mascota del enemigo ataco con TIERRA - GANASTE 🎉 </p>
+    </section>
+    <section id="reiniciar">
+         <button id="boton-reiniciar">reiniciar</button>
+    </section>          
+</body>
+</html>
