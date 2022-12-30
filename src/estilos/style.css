@@ -35,3 +35,29 @@ padding: 20px;
 width: 40%;
 height: 100%;
 }
+.main--choose-container{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.main--choose-container .choose--buttons-container{
+    width: 90%;
+    min-width: 288px;
+    max-width: 800px;
+    margin: 0 auto;
+    height: auto;
+}
+.choose--buttons-container .title{
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2rem;
+    padding-bottom: 20px;
+}
+.choose--buttons-container input[type="button"]{
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    padding: 5px;
+    margin: 4px;
+}
