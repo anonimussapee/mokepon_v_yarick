@@ -33,7 +33,22 @@ padding: 20px;
 }
 .character_1, .character_2{
 width: 40%;
+display: flex;
+justify-content: center;
+align-items: center;
 height: 100%;
+}
+.person1{
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+}
+.person2{
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
 }
 .main--choose-container{
     width: 100%;
