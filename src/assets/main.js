@@ -34,19 +34,30 @@ function jugar(id){
     console.log("funcion iniciada");
     console.log(pokedec[id].title);
    character_1.innerHTML=`<span class="person1 img" style="background-image: url(${pokedec[id].name});"></span>`;
-   j1.innerHTML=`<strong>Tú power:</strong>${pokedec[id].power}`;
+   j1.innerHTML=`<strong>Tú poder:</strong>${pokedec[id].power}`;
    setTimeout(()=>{jugadortwo();},1000);
    change();
    
 }
 //cambio de controles
-async function change(){
-    let view=`<p class="title">Juega</p>
-    <input type="button" class="charizard" value="Ataque\n de fuego">
-    <input type="button" class="bulbazur" value="Super\n golpe ">
-    <input type="button" class="fuecoco" value="Embestida">
-    <input type="button" class="rowlet" value="Patada\n voladora">`;
+function change(){
+    title_choose.innerHTML=`Juega`;
+    let view=`<input type="button" class="charizard" value="Ataque\n de fuego" onclick="atack()" >
+    <input type="button" class="bulbazur" onclick="atack()" value="Super\n golpe ">
+    <input type="button" class="fuecoco" value="Embestida" onclick="atack()" >
+    <input type="button" class="rowlet" value="Patada\n voladora" onclick="atack()">`;
     chooseplayer.innerHTML=view;
+}
+//funciones ataques
+function atack(){
+    character_2.innerHTML+=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);"></span>`;
+  
+    setTimeout(()=>{removeimg();console.log("funciona");},800);
+}
+function removeimg(){
+       //area de golpes2
+   let beat2=document.querySelector(".beat2");
+    beat2.classList.remove("img");
 }
 //area de ecoger jugador
 var chooseplayer=document.querySelector(".choose--buttons-container");
@@ -56,7 +67,9 @@ var viewchoose=`${pokedec.map(item=>
 )}`;
 console.log("vista"+viewchoose);
 chooseplayer.innerHTML+=viewchoose;
-//personajes
+//title chooser
+var title_choose=document.querySelector(".title");
+
 //area de poderes
 var j1=document.querySelector(".yourpower");
 var cpu=document.querySelector(".cpupower");

@@ -63,6 +63,11 @@ height: 100%;
     display: block;
     margin: 0 auto;
 }
+.ring--characters-container .beat{
+    width: 70px;
+    height: 60px;
+    position: absolute;
+}
 .main--choose-container{
     width: 100%;
     height: auto;
@@ -79,14 +84,15 @@ height: 100%;
     flex-wrap: wrap;
     justify-content: center;
 }
-.choose--buttons-container .title{
-    font-size: 2.1rem;
+.main--choose-container .title{
+    font-size: 1.8rem;
     font-weight: 400;
     line-height: 2rem;
     font-family:'Nabla', cursive;
     width: 280px;
+    margin: 0 auto;
     text-align: center;
-    height: auto;
+    height: 50px;
     background-color: #161616;
     border:4px groove white;
     border-radius: 20px;
