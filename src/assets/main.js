@@ -1,9 +1,10 @@
-var charizard="https://ypok.netlify.app/src/img/fondos/charizard.png";
+var charizard="https://ypok.netlify.app/src/img/fondos/charizard2.png";
 var fuecoco="https://ypok.netlify.app/src/img/fondos/fuecoco.png";
 var rowlet="https://ypok.netlify.app/src/img/fondos/rowlet.png";
 
 var bulbazur="https://ypok.netlify.app/src/img/fondos/Bulbasaur.png";
 var warning="https://cdn.pixabay.com/animation/2022/12/05/15/23/15-23-06-837_512.gif";
+
 var pokedec=[charizard,fuecoco,rowlet,bulbazur];
 console.log(pokedec);
 var character_1=document.querySelector(".character_1");

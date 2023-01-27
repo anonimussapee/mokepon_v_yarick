@@ -20,33 +20,32 @@ header{
 }
 .header--ring{
 background-image: url(../img/fondos/ring.jpg);
-padding: 20px;
 }
 .ring--characters-container{
-    width: 90%;
+    width: 98%;
     height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    gap: 20%;
+    gap: 10%;
     padding: 20px;
 }
 .character_1, .character_2{
-width: 40%;
+width: 50%;
 display: flex;
 justify-content: center;
 align-items: center;
 height: 100%;
 }
 .person1{
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     display: block;
     margin: 0 auto;
 }
 .person2{
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     display: block;
     margin: 0 auto;
 }
@@ -62,6 +61,10 @@ height: 100%;
     max-width: 800px;
     margin: 0 auto;
     height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 .choose--buttons-container .title{
     font-size: 1.8rem;
