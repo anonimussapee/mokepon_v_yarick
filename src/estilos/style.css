@@ -8,7 +8,7 @@
 }
 body{
     font-size: 62.5%;
-    background-color:#d62828;
+    background-color:#003566;
 }
 .img{
     background-position: center;
@@ -16,20 +16,37 @@ body{
     background-size: cover;
 }
 header{
-    margin-top: 35px;
+    margin-top: 40px;
     margin-left: .5%;
     width: 99%;
     height: 50vh;
 }
 .titlepokedex{
     position: absolute;
-    top: 0;
+    top: 2px;
     border: 2px groove gold;
     left: calc(50% - 37px);
     font-family: 'Nabla',cursive;
     font-size: 1.2rem;
     border-radius: 20px;
     background-color: #161616;
+}
+.reset{
+    position: absolute;
+    top: 0;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/528/528101.png);
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 40px;
+    height: 38px;
+    left: 10px;
+}
+.btnreset{
+    top: 10px;
+    left: 50px;
+    font-size: 1.2rem;
+    color: white;
+    position: absolute;
 }
 .header--ring{
 background-image: url(../img/fondos/ring2.jpg);

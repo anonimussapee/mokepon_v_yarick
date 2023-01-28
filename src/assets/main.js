@@ -18,6 +18,7 @@ function random(){
     return Math.floor(Math.random(0,3)*3);
 }
  function jugador2(){
+
     character_2.innerHTML=`<span class="person2 img" style="background-image: url(${countdown});"></span>`;
     cpuatacks=[];
     var randomn=random();
@@ -28,8 +29,12 @@ function random(){
 
     console.log(cpuatacks);
     return new Promise(resolve=>{
-       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedecr[randomn]});"><span class="beat-container two conttwo" ></span><</span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);},510); 
+       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedecr[randomn]});"><span class="beat-container two conttwo" ></span><</span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
+       b2.disabled=false;
+       b3.disabled=false;
+       b4.disabled=false;},510); 
     });
+
 
 }
 async function jugadortwo(){
@@ -42,7 +47,7 @@ function jugar(id){
    character_1.innerHTML=`<span class="person1 img" style="background-image: url(${pokedec[id].name});"><span class="beat-container one contone" ></span></span>`;
    j1.innerHTML=`<strong>Tú poder:</strong> ${pointj1=pokedec[id].power}`;
    setTimeout(()=>{jugadortwo();},1000);
-   change(id);
+    change(id);
    
 }
 //cambio de controles
@@ -51,13 +56,17 @@ function change(id){
     var j=1;
     let view=`${pokedec[id].atack.map(item=>`<input type="button"  class="buttonsj1${j++}" value="${item.name}" onclick="atack(${item.power})" >`)}`;
     chooseplayer.innerHTML=view;
+    b1=document.querySelector(".buttonsj11");
+    b2=document.querySelector(".buttonsj12");
+    b3=document.querySelector(".buttonsj13");
+    b4=document.querySelector(".buttonsj14");
+    b1.disabled=true;
+    b2.disabled=true;
+    b3.disabled=true;
+    b4.disabled=true;
 }
 //funciones ataques
 function atack(power){
-    let b1=document.querySelector(".buttonsj11");
-    let b2=document.querySelector(".buttonsj12");
-    let b3=document.querySelector(".buttonsj13");
-    let b4=document.querySelector(".buttonsj14");
     b1.disabled=true;
     b2.disabled=true;
     b3.disabled=true;
@@ -66,10 +75,20 @@ function atack(power){
     beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:70px;height:60px; position:absolute;"></span>`;
     pointr(2,power);
     setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},800);
-    setTimeout(()=>{contraataque();b1.disabled=false;
-    b2.disabled=false;
-    b3.disabled=false;
-    b4.disabled=false;},1850);
+    if(pointj1<=0){var conttwo=document.querySelector(".conttwo");
+    setTimeout(()=>{conttwo.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
+    }else if(pointcpu<=0){
+        var contone=document.querySelector(".contone");
+        setTimeout(()=>{contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
+    
+    }else{
+        setTimeout(()=>{contraataque();b1.disabled=false;
+            b2.disabled=false;
+            b3.disabled=false;
+            b4.disabled=false;},1850);
+    }
+    
+
    
 
 }
@@ -99,18 +118,25 @@ function pointr(player,power){
 if(player==2){pointcpu-=power;
 cpu.innerHTML=`<strong>Cpu poder:</strong> ${pointcpu}`;
 if(pointcpu<=0){
-    cpu.innerHTML=`<strong>Tú poder:</strong> 0`;
-    var contone=document.querySelector(".contone");
-    contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;}
+    cpu.innerHTML=`<strong>Cpu poder:</strong> 0`;
+ }
 }else if(player==1){
     pointj1-=power;
     j1.innerHTML=`<strong>Tú poder:</strong> ${pointj1}`;
     if(pointj1<=0){
         j1.innerHTML=`<strong>Tú poder:</strong> 0`;
-        var conttwo=document.querySelector(".conttwo");
-        conttwo.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;}
+        }
     }
+}//reset funcion
+function reset(){
+    window.location.reload();
 }
+//botones ataque
+    var b1;
+    var b2;
+    var b3;
+    var b4;
+//ataques del cpu
  var cpuatacks=[];
 //area de ecoger jugador
 var chooseplayer=document.querySelector(".choose--buttons-container");
