@@ -1,6 +1,9 @@
 :root{
 
 }
+.person1{
+    transform: scaleX(-1);
+}
 *{
     margin: 0;
     padding:0 ;
@@ -9,6 +12,9 @@
 body{
     font-size: 62.5%;
     background-color:#003566;
+}
+@media (min-width:400px) {
+    
 }
 .img{
     background-position: center;
@@ -96,11 +102,11 @@ height: 100%;
     margin: 0 auto;
 }
 .ring--characters-container .beat-container{
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     display: block;
     position: absolute;
-    top: 110px;
+    top: 130px;
 }
 .person1 .beat-container.one{
     left: 50px;

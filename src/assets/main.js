@@ -1,13 +1,8 @@
-var charizard="https://ypok.netlify.app/src/img/fondos/charizard2.png";
-var fuecoco="https://ypok.netlify.app/src/img/fondos/fuecoco2.png";
-var rowlet="https://ypok.netlify.app/src/img/fondos/rowlet2.png";
+var charizard="https://studio.code.org/v3/assets/g7fqgc6s41xEpkL7tyQXkl5C8DecaQVDnJbRIxbJeXE/Charizard.gif";
+var fuecoco="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9c5e0fe-eb02-4931-a508-afe7f09cf75a/df11rac-102b026e-3834-4aaf-9697-beb2d56c7d02.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y5YzVlMGZlLWViMDItNDkzMS1hNTA4LWFmZTdmMDljZjc1YVwvZGYxMXJhYy0xMDJiMDI2ZS0zODM0LTRhYWYtOTY5Ny1iZWIyZDU2YzdkMDIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.V7kxU7ha2omxYYosV-oI82vFybLFu3KLn8LkhEezfWA";
+var rowlet="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/70e6cd59-1391-4f07-afb7-3620cd80c2c7/da24sqw-b7930b8e-5227-4a2d-a5b9-e71107a35dae.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcwZTZjZDU5LTEzOTEtNGYwNy1hZmI3LTM2MjBjZDgwYzJjN1wvZGEyNHNxdy1iNzkzMGI4ZS01MjI3LTRhMmQtYTViOS1lNzExMDdhMzVkYWUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.M-WM_vNDOSyhaGDAxOozaP8D3T40_crHr2y-qkOHIS0";
 
-var bulbazur="https://ypok.netlify.app/src/img/fondos/Bulbasaur2.png";
-var charizard1="https://ypok.netlify.app/src/img/fondos/charizard.png";
-var fuecoco1="https://ypok.netlify.app/src/img/fondos/fuecoco.png";
-var rowlet1="https://ypok.netlify.app/src/img/fondos/rowlet.png";
-
-var bulbazur1="https://ypok.netlify.app/src/img/fondos/Bulbasaur.png";
+var bulbazur="https://i.pinimg.com/originals/62/2d/83/622d8382aa83d3fd3ca25ea7a5ff3b6f.gif";
 var warning="https://cdn.pixabay.com/animation/2022/08/01/22/45/22-45-00-157_512.gif";
 var countdown="https://cdn.pixabay.com/animation/2022/09/24/02/37/02-37-04-457_512.gif";
 
@@ -29,7 +24,7 @@ function random(){
 
     console.log(cpuatacks);
     return new Promise(resolve=>{
-       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedecr[randomn]});"><span class="beat-container two conttwo" ></span><</span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
+       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedec[randomn].name});"><span class="beat-container two conttwo" ></span><</span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
        b2.disabled=false;
        b3.disabled=false;
        b4.disabled=false;},510); 
@@ -72,7 +67,7 @@ function atack(power){
     b3.disabled=true;
     b4.disabled=true;
     var beat_container=document.querySelector(".conttwo");
-    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:70px;height:60px; position:absolute;"></span>`;
+    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px; position:absolute;"></span>`;
     pointr(2,power);
     setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},800);
     if(pointj1<=0){var conttwo=document.querySelector(".conttwo");
@@ -96,7 +91,7 @@ function atack(power){
 function contraataque(){
     let powercpu=cpuatacks[random()].power;
     let beat_container1=document.querySelector(".contone");
-    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:70px;height:60px; position:absolute;"></span>`;
+    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px;transform: scaleX(-1);position:absolute;bottom:125px; right:50px";></span>`;
     pointr(1,powercpu);
     console.log(powercpu);
     setTimeout(()=>{removeimg(1);console.log("funciona");},800);
@@ -154,6 +149,5 @@ var pointcpu;
 var j1=document.querySelector(".yourpower");
 var cpu=document.querySelector(".cpupower");
 //array con los personajes del cpu
-var pokedecr=[charizard1,fuecoco1,rowlet1,bulbazur1];
 var character_1=document.querySelector(".character_1");
 var character_2=document.querySelector(".character_2");
