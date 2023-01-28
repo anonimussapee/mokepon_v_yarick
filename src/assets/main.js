@@ -19,12 +19,18 @@ function random(){
 }
  function jugador2(){
     character_2.innerHTML=`<span class="person2 img" style="background-image: url(${countdown});"></span>`;
-    
+    cpuatacks=[];
     var randomn=random();
     console.log(random);
+    pokedec[randomn].atack.map(item=>
+        cpuatacks.push({"name":item.name,"power":item.power})
+        );
+
+    console.log(cpuatacks);
     return new Promise(resolve=>{
        setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedecr[randomn]});"><span class="beat-container two conttwo" ></span><</span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);},510); 
     });
+
 }
 async function jugadortwo(){
     const result=await jugador2();
@@ -42,32 +48,70 @@ function jugar(id){
 //cambio de controles
 function change(id){
     title_choose.innerHTML=`Juega ya!`;
-    let view=`${pokedec[id].atack.map(item=>`<input type="button"  value="${item.name}" onclick="atack(${item.power})" >`)}`;
+    var j=1;
+    let view=`${pokedec[id].atack.map(item=>`<input type="button"  class="buttonsj1${j++}" value="${item.name}" onclick="atack(${item.power})" >`)}`;
     chooseplayer.innerHTML=view;
 }
 //funciones ataques
 function atack(power){
+    let b1=document.querySelector(".buttonsj11");
+    let b2=document.querySelector(".buttonsj12");
+    let b3=document.querySelector(".buttonsj13");
+    let b4=document.querySelector(".buttonsj14");
+    b1.disabled=true;
+    b2.disabled=true;
+    b3.disabled=true;
+    b4.disabled=true;
     var beat_container=document.querySelector(".conttwo");
     beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:70px;height:60px; position:absolute;"></span>`;
-    pointr(power);
-    setTimeout(()=>{removeimg();console.log("funciona");},800);
+    pointr(2,power);
+    setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},800);
+    setTimeout(()=>{contraataque();b1.disabled=false;
+    b2.disabled=false;
+    b3.disabled=false;
+    b4.disabled=false;},1850);
+   
+
 }
-function removeimg(){
+//funcion contraataque
+function contraataque(){
+    let powercpu=cpuatacks[random()].power;
+    let beat_container1=document.querySelector(".contone");
+    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:70px;height:60px; position:absolute;"></span>`;
+    pointr(1,powercpu);
+    console.log(powercpu);
+    setTimeout(()=>{removeimg(1);console.log("funciona");},800);
+}
+//remove img del ouch
+function removeimg(op){
        //area de golpes2
-   let beat2=document.querySelector(".beat2");
+       if(op==2){
+        let beat2=document.querySelector(".beat2");
     beat2.classList.remove("img");
+       }else if(op==1){
+        let beat1=document.querySelector(".beat1");
+    beat1.classList.remove("img");
+       }
+   
 }
 //funcion puntaje restante
-function pointr(power){
-pointcpu-=power;
-cpu.innerHTML=`<strong>Tú poder:</strong> ${pointcpu}`;
+function pointr(player,power){
+if(player==2){pointcpu-=power;
+cpu.innerHTML=`<strong>Cpu poder:</strong> ${pointcpu}`;
 if(pointcpu<=0){
     cpu.innerHTML=`<strong>Tú poder:</strong> 0`;
     var contone=document.querySelector(".contone");
-    contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;
+    contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;}
+}else if(player==1){
+    pointj1-=power;
+    j1.innerHTML=`<strong>Tú poder:</strong> ${pointj1}`;
+    if(pointj1<=0){
+        j1.innerHTML=`<strong>Tú poder:</strong> 0`;
+        var conttwo=document.querySelector(".conttwo");
+        conttwo.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;}
+    }
 }
-}
-
+ var cpuatacks=[];
 //area de ecoger jugador
 var chooseplayer=document.querySelector(".choose--buttons-container");
 //vista de botonos escoger player
