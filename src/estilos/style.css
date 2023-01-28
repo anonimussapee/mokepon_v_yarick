@@ -19,11 +19,13 @@ header{
     height: 50vh;
 }
 .header--ring{
-background-image: url(../img/fondos/ring.jpg);
+background-image: url(../img/fondos/ring2.jpg);
 }
 .energy .power{
     margin-top: 10px;
-    background-color: #a0a09f;
+    border: 3px groove #1786bb;
+    color: white;
+    text-shadow: 2px 2px 2px black;
     font-size: 1.2rem;
     border-radius: 5px;
 }
@@ -63,16 +65,25 @@ height: 100%;
     display: block;
     margin: 0 auto;
 }
-.ring--characters-container .beat{
+.ring--characters-container .beat-container{
     width: 70px;
     height: 60px;
+    display: block;
     position: absolute;
+    top: 110px;
+}
+.person1 .beat-container.one{
+    left: 50px;
+}
+.person2 .beat-container.two{
+    right: 50px;
 }
 .main--choose-container{
     width: 100%;
     height: auto;
+    padding-top:5px;
     padding-bottom: 20px;
-    background-color:#a0a09f;
+    background-color:#d62828;
 }
 .main--choose-container .choose--buttons-container{
     width: 90%;
