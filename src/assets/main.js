@@ -67,32 +67,35 @@ function atack(power){
     b3.disabled=true;
     b4.disabled=true;
     var beat_container=document.querySelector(".conttwo");
-    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px; position:absolute;"></span>`;
+    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px; position:absolute; bottom:-5px;right:0;"></span>`;
     pointr(2,power);
     setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},800);
-    if(pointj1<=0){var conttwo=document.querySelector(".conttwo");
-    setTimeout(()=>{conttwo.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
-    }else if(pointcpu<=0){
-        var contone=document.querySelector(".contone");
-        setTimeout(()=>{contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
-    
-    }else{
-        setTimeout(()=>{contraataque();b1.disabled=false;
-            b2.disabled=false;
-            b3.disabled=false;
-            b4.disabled=false;},1850);
+    console.log("power j1"+pointj1);
+    if(pointj1>0 && pointcpu>0){
+        setTimeout(()=>{contraataque();},1850);
+     console.log("botones habilitados");
     }
-    
-
-   
-
 }
 //funcion contraataque
 function contraataque(){
     let powercpu=cpuatacks[random()].power;
     let beat_container1=document.querySelector(".contone");
-    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px;transform: scaleX(-1);position:absolute;bottom:125px; right:50px";></span>`;
+    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://ypok.netlify.app/src/img/fondos/ouch1.png);width:100px;height:100px;transform: scaleX(-1);position:absolute;bottom:125px; right:50px;"></span>`;
     pointr(1,powercpu);
+    console.log(pointj1);
+    if(pointj1<=0 && pointj1<pointcpu){var conttwo=document.querySelector(".conttwo");
+    setTimeout(()=>{conttwo.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
+    console.log("esta aqui");
+    }else if(pointcpu<=0){
+        var contone=document.querySelector(".contone");
+        setTimeout(()=>{contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; position:absolute;"></span>`;},800);
+    
+    }else{
+        b1.disabled=false;
+            b2.disabled=false;
+            b3.disabled=false;
+            b4.disabled=false;
+    }
     console.log(powercpu);
     setTimeout(()=>{removeimg(1);console.log("funciona");},800);
 }
@@ -120,6 +123,10 @@ if(pointcpu<=0){
     j1.innerHTML=`<strong>Tú poder:</strong> ${pointj1}`;
     if(pointj1<=0){
         j1.innerHTML=`<strong>Tú poder:</strong> 0`;
+        b1.disabled=true;
+        b2.disabled=true;
+        b3.disabled=true;
+        b4.disabled=true;
         }
     }
 }//reset funcion
