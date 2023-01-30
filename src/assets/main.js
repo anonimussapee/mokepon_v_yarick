@@ -25,11 +25,9 @@ function random(){
     var randomn=random();
     console.log(random);
     pokedec[randomn].atack.map(item=>
-        cpuatacks.push({"name":item.name,"power":item.power,"git":item.gif})
+        cpuatacks.push({"name":item.name,"power":item.power,"gif":item.gif})
         );
         console.log(cpuatacks);
-
-    console.log(cpuatacks);
     return new Promise(resolve=>{
        setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedec[randomn].img});"><span class="beat-container two conttwo" ></span></span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
        b2.disabled=false;
@@ -56,7 +54,7 @@ function jugar(id){
 function change(id){
     title_choose.innerHTML=`Juega ya!`;
     var j=1;
-    let view=`${pokedec[id].atack.map(item=>`<input type="button"  class="buttonsj1${j++}" value="${item.name}" onclick="atack(${item.power},${item.gif})" >`)}`;
+    let view=`${pokedec[id].atack.map(item=>`<input type="button"  class="buttonsj1${j++}" value="${item.name}" onclick="atack(${item.power},'${item.gif}')" >`)}`;
     chooseplayer.innerHTML=view;
     b1=document.querySelector(".buttonsj11");
     b2=document.querySelector(".buttonsj12");
@@ -74,9 +72,9 @@ function atack(power,gif){
     b3.disabled=true;
     b4.disabled=true;
     var beat_container=document.querySelector(".conttwo");
-    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(${gif});width:100px;height:150px; position:absolute; bottom:-5px;right:0;"></span>`;
+    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(${gif});width:100px;height:150px; position:absolute; bottom:-20px;right:0;"></span>`;
     pointr(2,power);
-    setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},800);
+    setTimeout(()=>{removeimg(2);console.log("funciona el removeimg");},1200);
     console.log("power j1"+pointj1);
     if(pointj1>0 && pointcpu>0){
         setTimeout(()=>{contraataque();},1850);
@@ -89,7 +87,7 @@ function contraataque(){
     let powercpu=cpuatacks[randomn].power;
     let gif=cpuatacks[randomn].gif;
     let beat_container1=document.querySelector(".contone");
-    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(${gif});width:100px;height:150px;transform: scaleX(-1);position:absolute;bottom:125px; right:50px;"></span>`;
+    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(${gif});width:100px;height:150px;transform: scaleX(-1);position:absolute;bottom:110px; right:50px;"></span>`;
     pointr(1,powercpu);
     console.log(pointj1);
     if(pointj1<=0 && pointj1<pointcpu){var conttwo=document.querySelector(".conttwo");
@@ -106,7 +104,7 @@ function contraataque(){
             b4.disabled=false;
     }
     console.log(powercpu);
-    setTimeout(()=>{removeimg(1);console.log("funciona");},800);
+    setTimeout(()=>{removeimg(1);console.log("funciona");},1200);
 }
 //remove img del ouch
 function removeimg(op){
@@ -155,7 +153,6 @@ var chooseplayer=document.querySelector(".choose--buttons-container");
 var viewchoose=`${pokedec.map(item=>
     `<input type="button"  value="${item.title}" onclick="jugar(${pokedec.indexOf(item)})">`
 )}`;
-console.log("vista"+viewchoose);
 chooseplayer.innerHTML+=viewchoose;
 //title chooser
 var title_choose=document.querySelector(".title");
