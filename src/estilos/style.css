@@ -13,8 +13,35 @@ body{
     font-size: 62.5%;
     background-color:#003566;
 }
-@media (min-width:400px) {
-    
+@media (min-width:375px) {
+    .character_2  .conttwo .beat2{
+    left: -5px;
+   }
+}
+@media (min-width:425px) {
+    .character_2  .conttwo .beat2{
+    left: -20px;
+   }
+}
+@media (min-width:500px) {
+    .character_2  .conttwo .beat2{
+    left: -40px;
+   }
+}
+@media (min-width:600px) {
+    .character_2  .conttwo .beat2{
+    left: -60px;
+   }
+}
+@media (min-width:700px) {
+    .character_2  .conttwo .beat2{
+    left: -90px;
+   }
+}
+@media (min-width:900px) {
+    .character_2  .conttwo .beat2{
+    left: -150px;
+   }
 }
 .img{
     background-position: center;
@@ -54,16 +81,21 @@ header{
     color: white;
     position: absolute;
 }
+.reset, .btnreset, .choose--buttons-container input[type="button"]:hover{
+    cursor: pointer;
+}
 .header--ring{
 background-image: url(../img/fondos/ring2.jpg);
 }
 .energy .power{
     margin-top: 10px;
+    background-color: black;
     border: 3px groove #1786bb;
     color: white;
-    text-shadow: 2px 2px 2px black;
+    text-shadow:0px 1px 0px rgb(137, 20, 20);
     font-size: 1.2rem;
     border-radius: 5px;
+    font-weight: 500;
 }
 .energy .yourpower{
     left: 10px;
@@ -155,7 +187,6 @@ height: 100%;
     height: 80px;
     border-radius: 20px;
     box-shadow: 8px 6px 8px black;
-    text-overflow: clip;
 }
 /*controles de jugador*/
 .controls{
@@ -166,15 +197,4 @@ height: 100%;
     flex-wrap: wrap;
     justify-content: center;
 
-}
-.controls input[type="button"]{
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 1.8rem;
-    padding: 5px;
-    margin: 4px;
-    width: auto;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 8px 6px 8px black;
 }
