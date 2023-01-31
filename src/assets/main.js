@@ -16,7 +16,7 @@ var pokedec=[{"img":{"width":120,"height":120,"img":"https://ypok.netlify.app/sr
 
 //funcion aleatoria
 function random(){
-    return Math.floor(Math.random(0,3)*3);
+    return Math.floor(Math.random(0,pokedec.length)*pokedec.length);
 }
  function jugador2(){
 
