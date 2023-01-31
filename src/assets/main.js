@@ -18,6 +18,10 @@ var pokedec=[{"img":{"width":120,"height":120,"img":"https://ypok.netlify.app/sr
 function random(){
     return Math.floor(Math.random(0,pokedec.length)*pokedec.length);
 }
+//function aleatoria para ataques
+function randompower(){
+    return Math.floor(Math.random(0,3)*3);
+}
  function jugador2(){
 
     character_2.innerHTML=`<span class="person2 img" style="background-image: url(${countdown});"></span>`;
@@ -78,11 +82,24 @@ function atack(power,gif){
         setTimeout(()=>{contone.innerHTML=`<span class="beat1 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; top: -120px;
         right: 40px;position:absolute;"></span>`;title_choose.innerHTML=`Ganaste!`;},800);
         console.log("aqui esta la copa para ti");
+        setTimeout(()=>{var win=document.querySelector(".beat1");
+        console.log(win);
+        player1win+=1;
+        if(player1win===1){
+            win.className="win1 img"
+            win.style.width='20px';
+            win.style.height='20px';
+            win.style.top='-180px';
+            win.style.right='12px';
+            console.log(win);
+        }
+        },1000);
+        
     }
 }
 //funcion contraataque
 function contraataque(){
-    let randomn=random();
+    let randomn=randompower();
     let powercpu=cpuatacks[randomn].power;
     let gif=cpuatacks[randomn].gif;
     let beat_container1=document.querySelector(".contone");
@@ -98,6 +115,7 @@ function contraataque(){
             b2.disabled=false;
             b3.disabled=false;
             b4.disabled=false;
+            console.log("botones activados");
     }
     
 }
@@ -153,6 +171,9 @@ chooseplayer.innerHTML+=viewchoose;
 var title_choose=document.querySelector(".title");
 var pointj1;
 var pointcpu;
+//partidas ganadas
+var cpuwin=0;
+var player1win=0;
 //area de poderes
 var j1=document.querySelector(".yourpower");
 var cpu=document.querySelector(".cpupower");

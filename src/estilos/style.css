@@ -146,6 +146,10 @@ height: 100%;
 .person2 .beat-container.two{
     right: 50px;
 }
+.contone .win1.img{
+    position: absolute;
+    transition: ease all 1.9s;
+} 
 .main--choose-container{
     width: 100%;
     height: auto;
