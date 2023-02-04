@@ -1,3 +1,19 @@
+//funcion audio
+const sonido=document.querySelector("#pokeaudio");
+setTimeout(()=>{sonido.play();},200)
+const btnplay=document.querySelector(".play");
+const btnpause=document.querySelector(".pause");
+btnplay.addEventListener("click",()=>{
+    sonido.play();
+    btnplay.classList.remove("on");
+    btnpause.classList.remove("off");
+});
+btnpause.addEventListener("click",()=>{
+    sonido.pause();
+    btnplay.classList.add("on");
+    btnpause.classList.add("off");
+});
+//imagenes y el array del pokedex
 var countdown="https://ypok.netlify.app/src/img/fondos/countdown.webp";
 
 var pokedec=[{"img":{"width":120,"height":120,"img":"https://ypok.netlify.app/src/img/fondos/charizard.gif"},"power":1000,"atack":[{"name":"Ataque\n Ala","power":60,"gif":"https://ypok.netlify.app/src/img/fondos/efectos/golpe.webp"},{"name":"Pirotecnia","power":60,"gif":"https://ypok.netlify.app/src/img/fondos/efectos/explosion.webp"},{"name":"Colmillo\n Ígneo","power":70,"gif":"https://ypok.netlify.app/src/img/fondos/efectos/fuego.gif"},{"name":"Cuchillada","power":65,"gif":"https://ypok.netlify.app/src/img/fondos/efectos/stars.webp"}], "title":"Charizard","tipo":[{"tipo":"fuego"},{"tipo":"volador"}],"debilidad":[{"tipo":"agua"},{"tipo":"electrico"},{"tipo":"roca"}]}/*sig
@@ -18,7 +34,7 @@ var pokedec=[{"img":{"width":120,"height":120,"img":"https://ypok.netlify.app/sr
 function random(){
     return Math.floor(Math.random(0,pokedec.length)*pokedec.length);
 }
-//function aleatoria para ataques
+//function aleatoriatransform: scaleX(-1); para ataques
 function randompower(){
     return Math.floor(Math.random(0,3)*3);
 }
@@ -72,7 +88,7 @@ function atack(power,gif){
     b3.disabled=true;
     b4.disabled=true;
     var beat_container=document.querySelector(".conttwo");
-    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(${gif});width:100px;height:150px; position:absolute; bottom:-20px;right:0;"></span>`;
+    beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(${gif});width:165px;height:160px; position:absolute; bottom:-40px;right:-55px;"></span>`;
     pointr(2,power);
     setTimeout(()=>{removeimg(2);},1200);
     if(pointj1>0 && pointcpu>0){
@@ -103,7 +119,7 @@ function contraataque(){
     let powercpu=cpuatacks[randomn].power;
     let gif=cpuatacks[randomn].gif;
     let beat_container1=document.querySelector(".contone");
-    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(${gif});width:100px;height:150px;transform: scaleX(-1);position:absolute;bottom:110px; right:50px;"></span>`;
+    beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(${gif});width:160px;height:165px;position:absolute;bottom:90px; right:15px;"></span>`;
 
     setTimeout(()=>{removeimg(1);},1200);
     pointr(1,powercpu);
@@ -153,6 +169,7 @@ if(pointcpu<=0){
 function reset(){
     window.location.reload();
 }
+
 //botones ataque
     var b1;
     var b2;

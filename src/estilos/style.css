@@ -13,29 +13,52 @@ body{
     font-size: 62.5%;
     background-color:#003566;
 }
-@media (min-width:375px) {
-    .character_2  .conttwo .beat2{
-    left: -5px;
-   }
+.play, .pause{
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    transition: ease-in .1s;
 }
-@media (min-width:425px) {
+.play{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/945/945174.png);
+    visibility: hidden;
+}
+.pause{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/5932/5932251.png);
+    visibility: visible;
+}
+.pause.off{
+    visibility:hidden;
+}
+.play.on{
+    visibility: visible;
+}
+@media (min-width:375px) {
     .character_2  .conttwo .beat2{
     left: -20px;
    }
 }
+@media (min-width:425px) {
+    .character_2  .conttwo .beat2{
+    left: -30px;
+   }
+}
 @media (min-width:500px) {
     .character_2  .conttwo .beat2{
-    left: -40px;
+    left: -70px;
    }
 }
 @media (min-width:600px) {
     .character_2  .conttwo .beat2{
-    left: -60px;
+    left: -80px;
    }
 }
 @media (min-width:700px) {
     .character_2  .conttwo .beat2{
-    left: -90px;
+    left: -120px;
    }
 }
 @media (min-width:900px) {
