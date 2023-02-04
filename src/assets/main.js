@@ -1,17 +1,23 @@
 //funcion audio
 const sonido=document.querySelector("#pokeaudio");
-setTimeout(()=>{sonido.play();},200)
 const btnplay=document.querySelector(".play");
 const btnpause=document.querySelector(".pause");
 btnplay.addEventListener("click",()=>{
     sonido.play();
-    btnplay.classList.remove("on");
-    btnpause.classList.remove("off");
+    btnplay.classList.add("off");
+    btnpause.classList.add("on");
+    pop1.style.visibility="hidden";
 });
 btnpause.addEventListener("click",()=>{
     sonido.pause();
-    btnplay.classList.add("on");
-    btnpause.classList.add("off");
+    btnplay.classList.remove("off");
+    btnpause.classList.remove("on");
+});
+//firstpopupsound
+var pop1=document.querySelector(".popupsound");
+document.querySelector(".closepop1").addEventListener("click",()=>{
+
+    pop1.style.visibility="hidden";
 });
 //imagenes y el array del pokedex
 var countdown="https://ypok.netlify.app/src/img/fondos/countdown.webp";
@@ -47,7 +53,7 @@ function randompower(){
         cpuatacks.push({"name":item.name,"power":item.power,"gif":item.gif})
         );
     return new Promise(resolve=>{
-       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedec[randomn].img.img});width:${pokedec[randomn].img.width}px;height:${pokedec[randomn].img.height}px;display: block;margin: 0 auto;"><span class="beat-container two conttwo" ></span></span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
+       setTimeout(()=>{resolve(character_2.innerHTML=`<span class="person2 img" style="background-image: url(${pokedec[randomn].img.img});width:${pokedec[randomn].img.width}px;height:${pokedec[randomn].img.height}px;display: block;margin: 0 auto;"><span class="beat-container two conttwo" ></span></span><span class="pointatack2" style="display:block;position:absolute;font-family:'Nabla', cursive;font-size:1.6rem;top:90px;"></span>`,cpu.innerHTML=`<strong>CPU poder:</strong> ${pointcpu=pokedec[randomn].power}`);b1.disabled=false;
        b2.disabled=false;
        b3.disabled=false;
        b4.disabled=false;},510); 
@@ -60,7 +66,7 @@ async function jugadortwo(){
 }
 //jugador 1
 function jugar(id){
-   character_1.innerHTML=`<span class="person1 img" style="background-image: url(${pokedec[id].img.img});width:${pokedec[id].img.width}px;height:${pokedec[id].img.height}px;display: block;margin: 0 auto;"><span class="beat-container one contone" ></span></span>`;
+   character_1.innerHTML=`<span class="person1 img" style="background-image: url(${pokedec[id].img.img});width:${pokedec[id].img.width}px;height:${pokedec[id].img.height}px;display: block;margin: 0 auto;"><span class="beat-container one contone" ></span></span><span class="pointatack1" style="display:block;position:absolute;font-family:'Nabla', cursive;font-size:1.6rem;top:90px;"></span>`;
    j1.innerHTML=`<strong>Tú poder:</strong> ${pointj1=pokedec[id].power}`;
    setTimeout(()=>{jugadortwo();},1000);
     change(id);
@@ -87,10 +93,12 @@ function atack(power,gif){
     b2.disabled=true;
     b3.disabled=true;
     b4.disabled=true;
+    var sustraccion2=document.querySelector(".pointatack2");
     var beat_container=document.querySelector(".conttwo");
     beat_container.innerHTML=`<span class="beat2 beat img" style="background-image: url(${gif});width:165px;height:160px; position:absolute; bottom:-40px;right:-55px;"></span>`;
     pointr(2,power);
-    setTimeout(()=>{removeimg(2);},1200);
+    setTimeout(()=>{removeimg(2);sustraccion2.innerHTML="-"+power},1400);
+    setTimeout(()=>{sustraccion2.innerHTML=""},2200);
     if(pointj1>0 && pointcpu>0){
         setTimeout(()=>{contraataque();},1850);
     }else if(pointj1>0 && pointcpu<=0){
@@ -99,7 +107,7 @@ function atack(power,gif){
         right: 40px;position:absolute;"></span>`;title_choose.innerHTML=`Ganaste!`;},800);
         console.log("aqui esta la copa para ti");
         setTimeout(()=>{var win=document.querySelector(".beat1");
-        console.log(win);
+        
         player1win+=1;
         if(player1win===1){
             win.className="win1 img"
@@ -115,13 +123,16 @@ function atack(power,gif){
 }
 //funcion contraataque
 function contraataque(){
+    var sustraccion1=document.querySelector(".pointatack1");
     let randomn=randompower();
     let powercpu=cpuatacks[randomn].power;
     let gif=cpuatacks[randomn].gif;
     let beat_container1=document.querySelector(".contone");
     beat_container1.innerHTML=`<span class="beat1 beat img" style="background-image: url(${gif});width:160px;height:165px;position:absolute;bottom:90px; right:15px;"></span>`;
-
-    setTimeout(()=>{removeimg(1);},1200);
+    
+    
+    setTimeout(()=>{removeimg(1);sustraccion1.innerHTML="-"+powercpu},1400);
+    setTimeout(()=>{sustraccion1.innerHTML=""},2200);
     pointr(1,powercpu);
     if(pointj1<=0 && pointj1<pointcpu){var conttwo=document.querySelector(".conttwo");
     setTimeout(()=>{conttwo.innerHTML=`<span class="beat2 beat img" style="background-image: url(https://cdn-icons-png.flaticon.com/512/477/477243.png);width:100px;height:100px; bottom: -14px;position:absolute;"></span>`;title_choose.innerHTML=`Perdiste!`;},800);
@@ -131,7 +142,6 @@ function contraataque(){
             b2.disabled=false;
             b3.disabled=false;
             b4.disabled=false;
-            console.log("botones activados");
     }
     
 }
@@ -197,3 +207,6 @@ var cpu=document.querySelector(".cpupower");
 //array con los personajes del cpu
 var character_1=document.querySelector(".character_1");
 var character_2=document.querySelector(".character_2");
+//puntajes menos
+var sustraccion1;
+var sustraccion2;

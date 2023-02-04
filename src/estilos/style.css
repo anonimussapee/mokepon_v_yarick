@@ -24,17 +24,55 @@ body{
 }
 .play{
     background-image: url(https://cdn-icons-png.flaticon.com/512/945/945174.png);
-    visibility: hidden;
+    visibility: visible;
 }
 .pause{
     background-image: url(https://cdn-icons-png.flaticon.com/512/5932/5932251.png);
-    visibility: visible;
+    visibility: hidden;
 }
-.pause.off{
-    visibility:hidden;
+.pause.on{
+    visibility:visible;
 }
-.play.on{
-    visibility: visible;
+.play.off{
+    visibility: hidden;
+}
+.popupsound{
+    width: 150px;
+    height: 100px;
+    border-radius: 20px;
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    background-color: rgba(228, 228, 228, 0.627);
+    z-index: 2;
+    padding: 20px 5px 5px 20px;
+}
+.arrow{
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/5708/5708118.png);
+    top: 0;
+    right: 5px;
+    animation: hand .3s infinite alternate linear ;
+}
+.closepop1{
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/458/458594.png);
+    top: 3px;
+    left: 10px;
+}
+@keyframes hand {
+    from{
+        top: 0;
+    }
+    to{
+        top: 10px;
+    }
 }
 @media (min-width:375px) {
     .character_2  .conttwo .beat2{
